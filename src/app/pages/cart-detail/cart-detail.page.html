@@ -1,0 +1,66 @@
+<ion-content class="cart-detail">
+	<p>Your Blance</p>
+	<h3>$ 926.21</h3>
+
+	<label>Payment Methods</label>
+	<ion-slides loop="true" pager="true">
+		<ion-slide>
+			<div class="card cash-delivery">
+				<h2>Cash on Delivery</h2>
+				<div class="img">
+					<img src="assets/images/download (1).png">
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="card jazz-cash">
+				<h2>Jazz Cash</h2>
+				<div class="img">
+					<img src="assets/images/JazzCash_logo.png" alt="">
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="card easy-cash">
+				<h2>Easy Pasisa</h2>
+				<div class="img">
+					<img src="assets/images/EasyPaisa-Logo.png" alt="">
+				</div>
+			</div>
+		</ion-slide>
+		<ion-slide>
+			<div class="card easy-cash">
+				<h2>Bank Account</h2>
+				<div class="img">
+					<img src="assets/images/download.jpg" alt="">
+				</div>
+			</div>
+		</ion-slide>
+	</ion-slides>
+
+	<ion-item>
+		<div class="wrap">
+			<label>Use Current Loaction <ion-toggle slot="end" name="blueberry" checked></ion-toggle></label>
+			<div class="location">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13594.266313237882!2d74.3000874!3d31.590931400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1603617633617!5m2!1sen!2s" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+			</div>
+		</div>
+	</ion-item>
+
+	<ion-item>
+		<div class="wrap">
+			<label>Delivery </label>
+			<div class="progress">
+				<ion-progress-bar value="0.5"></ion-progress-bar>
+			</div>
+		</div>
+	</ion-item>
+</ion-content>
+
+<ion-footer class="cart-detail-footer">
+	<p>
+		Total:
+		<span>1300 PKR</span>
+	</p>
+	<ion-button class="btn btn-pimary" fill="clear">Pay</ion-button>
+</ion-footer>
