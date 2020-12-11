@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-getstarted',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetstartedPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
+
+  onSignUp(){
+    this.navCtrl.navigateRoot('/signup');
+  }
+
+  onSignIn(){
+    this.navCtrl.navigateRoot('/login');
+  }
 
   ngOnInit() {
   }

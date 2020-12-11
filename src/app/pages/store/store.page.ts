@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-store',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StorePage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
+
+  onClick(){
+    this.navCtrl.navigateRoot('/bottledwater');
+  }
+
+  onCart(){
+    this.navCtrl.navigateRoot('/cart');
+  }
 
   ngOnInit() {
   }

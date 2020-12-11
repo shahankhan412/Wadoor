@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-payment-success',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentSuccessPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
+
+  rating(){
+    this.navCtrl.navigateRoot('/rating');
+  }
 
   ngOnInit() {
   }

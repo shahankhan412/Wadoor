@@ -38,7 +38,7 @@
 		</ion-slide>
 	</ion-slides>
 
-	<ion-item>
+	<ion-item (click)="navigate()">
 		<div class="wrap">
 			<label>Use Current Loaction <ion-toggle slot="end" name="blueberry" checked></ion-toggle></label>
 			<div class="location">
@@ -62,5 +62,5 @@
 		Total:
 		<span>1300 PKR</span>
 	</p>
-	<ion-button class="btn btn-pimary" fill="clear">Pay</ion-button>
+	<ion-button class="btn btn-pimary" (click)="pay()" fill="clear">Pay</ion-button>
 </ion-footer>

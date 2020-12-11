@@ -14,14 +14,14 @@
 	    	<div class="align-items">
 	    		<i class="las la-search"></i>
 	    		<!-- <input type="text" placeholder="Search..." class="search" name=""> -->
-	    		<i class="las la-shopping-cart"></i>
+	    		<i class="las la-shopping-cart" (click)="onCart()"></i>
 	    	</div>
     	</div>
   	</ion-toolbar>
 </ion-header>
 
 <ion-content class="store" mode="ios">
-	<div class="add-banner">
+	<div class="add-banner" (click)="onClick()">
 		<div class="image">
 			<img src="assets/images/water-purifines.png" alt="">
 		</div>
@@ -48,7 +48,7 @@
 	</div>
 	<ion-grid class="padding-0">
 		<ion-row>
-			<ion-col size="12">
+			<ion-col size="12" (click)="onClick()">
 				<div class="box large">
 					<div class="img">
 						<img src="assets/images/delivery-icon.png" alt="">
@@ -56,7 +56,7 @@
 					<p>Fast Order</p>
 				</div>
 			</ion-col>
-			<ion-col size="6">
+			<ion-col size="6" (click)="onClick()">
 				<div class="box">
 					<div class="img">
 						<img src="assets/images/large-bottle.png" alt="">
@@ -64,7 +64,7 @@
 					<p>Large Bottled Water</p>
 				</div>
 			</ion-col>
-			<ion-col size="6">
+			<ion-col size="6" (click)="onClick()">
 				<div class="box">
 					<div class="img">
 						<img src="assets/images/small-bottle.jpg" alt="">
@@ -72,7 +72,7 @@
 					<p>Bottled Water</p>
 				</div>
 			</ion-col>
-			<ion-col size="6">
+			<ion-col size="6" (click)="onClick()">
 				<div class="box">
 					<div class="img">
 						<img src="assets/images/large-bottle.png" alt="">
@@ -80,7 +80,7 @@
 					<p>Coolers & equipments</p>
 				</div>
 			</ion-col>
-			<ion-col size="6">
+			<ion-col size="6" (click)="onClick()">
 				<div class="box">
 					<div class="img">
 						<img src="assets/images/small-bottle.jpg" alt="">

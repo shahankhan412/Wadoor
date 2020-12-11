@@ -1,3 +1,13 @@
+<ion-header mode="ios">
+	<ion-toolbar class="search-head inner-head">
+		<div class="d-flex">
+			<ion-button class="back-arrow" (click)="onClickBack()">
+				<i class="las la-arrow-left"></i>
+		  </ion-button>
+		  <ion-title><p>Details</p></ion-title>
+	  </div>
+	</ion-toolbar>
+</ion-header>
 <ion-content class="detail-screen" mode="ios">
 	<div class="img">
 		<img src="assets/images/small-bottle.jpg" alt="">
@@ -46,7 +56,7 @@
 				</div>
 			</ion-col>
 			<ion-col size="4">
-				<ion-button class="btn btn-pimary" fill="clear">Check Out</ion-button>
+				<ion-button class="btn btn-pimary" (click)="onCart()" fill="clear">Check Out</ion-button>
 			</ion-col>
 		</ion-row>
 	</ion-grid>

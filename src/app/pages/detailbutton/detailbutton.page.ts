@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Location} from '@angular/common'
 
 @Component({
   selector: 'app-detailbutton',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailbuttonPage implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location,private navCtrl: NavController) { }
+
+  onCart(){
+    this.navCtrl.navigateRoot('/cart');
+  }
+
+  onClickBack(){
+    this.location.back();
+  }
 
   ngOnInit() {
   }

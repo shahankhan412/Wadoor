@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location} from '@angular/common';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cart-detail',
@@ -7,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartDetailPage implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location,private navCtrl: NavController) { }
 
+  onClickBack(){
+    this.location.back();
+  }
+
+  pay(){
+    this.navCtrl.navigateRoot('/payment-success');
+  }
+  
+  navigate(){
+    this.navCtrl.navigateRoot('/navigation');
+  }
   ngOnInit() {
   }
 

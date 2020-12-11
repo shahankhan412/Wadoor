@@ -1,7 +1,7 @@
 <ion-header class="absolute bg-blue" mode="ios">
 	<ion-toolbar class="bg-blue">
 		<ion-button class="back-arrow">
-			<i class="las la-arrow-left"></i>
+			<i class="las la-arrow-left" (click)="onClickBack()"></i>
 		</ion-button>
 	</ion-toolbar>	
 </ion-header>
@@ -13,17 +13,32 @@
 		<h2>Sign in<span>to start working</span></h2>
 		<p>Enter a phone number to get a text <br> message with a verification code</p>
 		
-		<form>
+		<form [formGroup]="loginForm" (keyup.enter)="onLoginClick()">
 			<ion-item>
 				<div class="wrap">
-					<input type="number" class="form-control" placeholder="Enter Phone Number" name="">
-					<!-- <div class="error">Error</div> -->
+					<label>Phone Number *</label>
+					<input type="number" class="form-control" placeholder="0300 1234567" formControlName="phone_number"
+					autocomplete="no">
+					<div *ngIf="loginFormSubmitted && loginForm.controls.phone_number.errors" class="error">
+						<div *ngIf="loginForm.controls.phone_number.errors.required">
+							Phone number is required.
+						</div>
+						<div *ngIf="loginForm.controls.phone_number.errors.pattern">
+							Phone number is invalid.
+						</div>
+						<div *ngIf="loginForm.controls.phone_number.errors.minlength">
+							Minimun 10 digits are required.
+						</div>
+						<div *ngIf="loginForm.controls.phone_number.errors.maxlength">
+							Maximun 18 digits are required.
+						</div>
+					</div>
 				</div>
 			</ion-item>
 		</form>
 		
 		<ion-item>
-			<ion-button fill="clear" class="btn btn-pimary d-block">Continue</ion-button>	
+			<ion-button fill="clear" class="btn btn-pimary d-block" (click)="onLoginClick()">Continue</ion-button>	
 		</ion-item>
 	</div>
 

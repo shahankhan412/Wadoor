@@ -1,9 +1,9 @@
 <ion-header class="absolute bg-blue" mode="ios">
 	<ion-toolbar class="bg-blue">
 		<ion-button class="back-arrow">
-			<i class="las la-arrow-left"></i>
+			<i class="las la-arrow-left" (click)="onClickBack()"></i>
 		</ion-button>
-	</ion-toolbar>	
+	</ion-toolbar>
 </ion-header>
 <ion-content class="bg-blue login signup" mode="ios">
 	<div class="logo">
@@ -11,27 +11,57 @@
 	</div>
 	<div class="content-box">
 		<h2>Sign Up<span>to start working</span></h2>
-		<form>
+		<form [formGroup]="signupForm" (keyup.enter)="onSignUpClick()">
 			<ion-item>
 				<div class="wrap">
 					<label>Name *</label>
-					<input type="text" class="form-control" name="">
+					<input type="text" placeholder="Enter name" class="form-control" name="Name" formControlName="name"
+						autocomplete="yes">
+					<div *ngIf="signUpFormSubmitted && signupForm.controls.name.errors" class="error">
+						<div *ngIf="signupForm.controls.name.errors.required">
+							Name is required.
+						</div>
+					</div>
 				</div>
 			</ion-item>
 			<ion-item>
 				<div class="wrap">
 					<label>Email *</label>
-					<input type="email" class="form-control" name="">
+					<input type="email" placeholder="Enter email" class="form-control" name="email"
+						formControlName="email" autocomplete="yes">
+					<div *ngIf="signUpFormSubmitted && signupForm.controls.email.errors" class="error">
+						<div *ngIf="signupForm.controls.email.errors.required">
+							Email is required.
+						</div>
+						<div *ngIf="signupForm.controls.email.errors.pattern">
+							Email is invalid.
+						</div>
+					</div>
 				</div>
 			</ion-item>
 			<ion-item>
 				<div class="wrap">
 					<label>Phone Number *</label>
-					<input type="number" class="form-control" name="">
+					<input type="number" class="form-control" placeholder="0300 1234567" formControlName="phone_number"
+						autocomplete="no">
+					<div *ngIf="signUpFormSubmitted && signupForm.controls.phone_number.errors" class="error">
+						<div *ngIf="signupForm.controls.phone_number.errors.required">
+							Phone number is required.
+						</div>
+						<div *ngIf="signupForm.controls.phone_number.errors.pattern">
+							Phone number is invalid.
+						</div>
+						<div *ngIf="signupForm.controls.phone_number.errors.minlength">
+							Minimun 11 digits are required.
+						</div>
+						<div *ngIf="signupForm.controls.phone_number.errors.maxlength">
+							Maximun 11 digits are required.
+						</div>
+					</div>
 				</div>
 			</ion-item>
 			<ion-item>
-				<ion-button fill="clear" class="btn btn-pimary d-block">Sign up</ion-button>	
+				<ion-button fill="clear" class="btn btn-pimary d-block" (click)="onSignUpClick()">Sign up</ion-button>
 			</ion-item>
 		</form>
 	</div>

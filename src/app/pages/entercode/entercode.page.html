@@ -1,45 +1,67 @@
 <ion-header class="absolute bg-blue" mode="ios">
-	<ion-toolbar class="bg-blue">
+	<!-- <ion-toolbar class="bg-blue">
 		<ion-button class="back-arrow">
 			<i class="las la-arrow-left"></i>
 		</ion-button>
-	</ion-toolbar>	
+	</ion-toolbar> -->
 </ion-header>
 <ion-content class="bg-blue entercode" mode="ios">
 	<div class="logo">
 		<img src="assets/images/logo-white.svg" alt="">
 	</div>
 	<div class="content-box">
-		<h2>Enter Code</h2>
-		<p>We've sent SMS with activation code <br> to your phone <b> +91 2056668878</b>
-			<span>
-				PASTE FROM SMS <b>0349</b>
-			</span>			
-		</p>
-		<ion-item>
-			<div class="wrap">
-				<ul>
-					<li>
-						<input type="number" class="form-control">
-					</li>
-					<li>
-						<input type="number" class="form-control">
-					</li>
-					<li>
-						<input type="number" class="form-control">
-					</li>
-					<li>
-						<input type="number" class="form-control">
-					</li>
-				</ul>
-			</div>
-		</ion-item>
+		<form [formGroup]="verifyForm" (keyup.enter)="onVerifyClick()">
+			<h2>Enter Code</h2>
+			<p>We've sent SMS with activation code <br> to your phone.
+				<span>
+					PASTE FROM SMS <b>0349</b>
+				</span>
+			</p>
+			<ion-item>
+				<div class="wrap">
+					<ul>
+						<li>
+							<input type="number" formControlName="num1" [(ngModel)]="num1" class="form-control">
+						</li>
+						<li>
+							<input type="number" formControlName="num2" [(ngModel)]="num2" class="form-control">
+						</li>
+						<li>
+							<input type="number" formControlName="num3" [(ngModel)]="num3" class="form-control">
+						</li>
+						<li>
+							<input type="number" formControlName="num4" [(ngModel)]="num4" class="form-control">
+						</li>
+					</ul>
+					<div *ngIf="verifyFormSubmitted && verifyForm.controls.num1.errors" class="error">
+						<div *ngIf="verifyForm.controls.num1.errors.required">
+							Number 1 is required.
+						</div>
+					</div>
+					<div *ngIf="verifyFormSubmitted && verifyForm.controls.num2.errors" class="error">
+						<div *ngIf="verifyForm.controls.num2.errors.required">
+							Number 2 is required.
+						</div>
+					</div>
+					<div *ngIf="verifyFormSubmitted && verifyForm.controls.num3.errors" class="error">
+						<div *ngIf="verifyForm.controls.num3.errors.required">
+							Number 3 is required.
+						</div>
+					</div>
+					<div *ngIf="verifyFormSubmitted && verifyForm.controls.num4.errors" class="error">
+						<div *ngIf="verifyForm.controls.num4.errors.required">
+							Number 4 is required.
+						</div>
+					</div>
+				</div>
+			</ion-item>
 
-		<h6>Please enter 4-digit code we sent on your number as SMS</h6>
-		<span>Didn't receive code?<b>Requset a call</b></span>
-		<ion-item>
-			<ion-button fill="clear" class="btn btn-pimary d-block">Send Code</ion-button>	
-		</ion-item>
+			<h6>Please enter 4-digit code we sent on your number as SMS</h6>
+			<span>Didn't receive code?<b (click)="onVerifyClick()">Requset a call</b></span>
+			<ion-item>
+				<ion-button fill="clear" class="btn btn-pimary d-block" (click)="onVerifyClick()">Send Code</ion-button>
+			</ion-item>
+		</form>
 	</div>
 
 </ion-content>

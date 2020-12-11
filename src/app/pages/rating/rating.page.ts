@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-rating',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RatingPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
+
+  goHome(){
+     this.navCtrl.navigateRoot('/store');
+  }
 
   ngOnInit() {
   }
